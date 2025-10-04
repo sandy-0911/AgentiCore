@@ -1,33 +1,45 @@
 # AgentiCore: Advanced AI Agent Interface
 
+<div align="center">
+
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Google Gemini](https://img.shields.io/badge/Google_Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
+
+</div>
+
 AgentiCore is a sophisticated web application showcasing a powerful AI agent built with the Google Gemini API. It demonstrates how a conversational AI can be augmented with specialized tools to perform complex tasks beyond simple text generation. The user interacts with the agent through a sleek, neon-themed UI, asking it to monitor system resources, estimate ML model performance, or even execute small code snippets safely.
 
-This project is designed to highlight modern AI capabilities, particularly in the realm of "agentic AI" where the model can reason and decide to use external functions to fulfill a user's request.
-
-![AgentiCore Screenshot](https://i.imgur.com/example.png) <!-- It's good practice to add a screenshot -->
+This project is designed to highlight modern AI capabilities, particularly in the realm of **"agentic AI"** where the model can reason and decide to use external functions to fulfill a user's request.
 
 ---
 
-## ✨ Features
+### Application Preview
+<!-- It's good practice to add a screenshot -->
+ 
 
-- **Conversational AI:** Powered by Google's `gemini-2.5-flash` model for fast and intelligent responses.
-- **Advanced Tool Integration (Function Calling):**
-    - **GPU Resource Monitor:** The agent can access a (mocked) function to report on GPU status, including temperature, utilization, and VRAM usage. The results are displayed in a dynamic, easy-to-read chart.
-    - **Model Performance Estimator:** Provides quick estimates for the VRAM requirements and potential inference speed for popular AI models like Llama2-7B or Stable Diffusion.
-    - **Safe Code Executor:** Demonstrates the concept of a sandboxed environment where the agent can run simple, non-malicious code snippets to perform calculations or simple operations.
-- **Engaging User Interface:**
-    - A stylish and modern neon aesthetic with glowing text and borders.
-    - Real-time message updates that mimic a streaming response.
-    - Clear visual distinction between messages from the User, the AI (Model), and the Tools being used.
-    - Fully responsive design that works seamlessly on desktop and mobile devices.
+---
+
+## ✨ Core Features
+
+| Feature                          | Description                                                                                                                              |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| 🤖 **Conversational AI**         | Powered by Google's `gemini-2.5-flash` model for fast, intelligent, and context-aware responses.                                         |
+| 🛠️ **Advanced Tool Integration** | The agent uses Gemini's Function Calling to interact with its environment, providing real-world utility.                                 |
+| 🖥️ **GPU Resource Monitor**     | Reports on (mocked) GPU status, including temperature, utilization, and VRAM usage, displayed in a dynamic chart.                          |
+| 📈 **Model Performance Estimator** | Provides quick estimates for VRAM needs and inference speeds for popular AI models like Llama2-7B or Stable Diffusion.                   |
+| 💻 **Safe Code Executor**        | Demonstrates sandboxed execution by allowing the agent to run simple, non-malicious code snippets for calculations or simple operations. |
+| 🎨 **Engaging Neon UI**         | A stylish and modern aesthetic with glowing text and borders, real-time message updates, and a fully responsive design.                    |
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** React, TypeScript, Tailwind CSS
-- **AI & Function Calling:** Google Gemini API (`@google/genai`)
-- **Data Visualization:** Recharts for rendering the GPU metrics chart.
+- **Frontend:** **React** & **TypeScript**
+- **Styling:** **Tailwind CSS** for a utility-first workflow.
+- **AI & Function Calling:** **Google Gemini API** (`@google/genai`).
+- **Data Visualization:** **Recharts** for rendering the GPU metrics chart.
 - **Icons:** Custom SVG icons for a polished look and feel.
 
 ---
@@ -36,27 +48,30 @@ This project is designed to highlight modern AI capabilities, particularly in th
 
 ### Prerequisites
 - A modern web browser.
-- A Google Gemini API Key.
+- A **Google Gemini API Key**.
 
 ### Setup & Running the Application
 
-This project is set up to run in a browser-based development environment like the one it was created in.
+This project is configured to run in a browser-based development environment.
 
 1.  **API Key Configuration:**
-    The application is hardcoded to look for the API key in `process.env.API_KEY`. In the provided `services/agentService.ts`, you would replace the placeholder with your actual key.
+    The application requires an API key to function. You must set it in `services/agentService.ts`.
 
     ```typescript
     // In services/agentService.ts
-    const API_KEY = "YOUR_GEMINI_API_KEY"; // Replace with your key
+    const API_KEY = "YOUR_GEMINI_API_KEY"; // Replace with your actual key
     ```
-    *Note: In a real-world scenario, this key should never be exposed on the client-side. It would be handled by a backend server, and the `process.env.API_KEY` would be loaded securely.*
 
-2.  **Open `index.html`:**
+    > **Important Security Note:** In a production environment, this key should **never** be exposed on the client side. It should be managed by a secure backend server, and the `process.env.API_KEY` would be loaded server-side.
+
+2.  **Run the Application:**
     Since this is a client-side application with no build step, you can simply open the `index.html` file in your web browser to run it.
 
 ---
 
 ## 📂 Project Structure
+
+The project is organized into a clean, component-based architecture for maintainability and scalability.
 
 ```
 /
@@ -86,4 +101,4 @@ This project is set up to run in a browser-based development environment like th
 - **Gemini Function Calling:** The core mechanism for enabling tool use, where the model outputs a structured request to call a specific function with certain arguments.
 - **Client-Side State Management:** Using React's `useState` and `useCallback` hooks to efficiently manage the conversation state without a complex state management library.
 - **Component-Based Architecture:** Structuring the entire user interface into logical, reusable, and maintainable React components.
-- **Mocking Services:** Demonstrating how to simulate backend or hardware-level tools (`getGPUStatus`) in a frontend environment, which is crucial for development, testing, and creating demos like this one.
+- **Mocking Services:** Demonstrating how to simulate backend or hardware-level tools (`getGPUStatus`) in a frontend environment—a crucial skill for development, testing, and creating demos.
